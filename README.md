@@ -28,8 +28,8 @@ An intelligent, RAG-powered Streamlit application that generates comprehensive t
  requirements.txt               # Python package dependencies
  run_app.py                     # Convenience wrapper to launch the app
  .env.example                   # Environment variables template
- .gitignore                     # Git ignore rules
- README.md                      # This file
+ .gitignore                     
+ README.md                      
 ```
 
 ##  File Descriptions
@@ -273,8 +273,8 @@ This project is provided as-is for educational and development purposes.
 
 ##  Support
 
-For issues, questions, or feature requests, please open an issue on GitHub or contact the maintainer.
+For issues, questions, do contact me.
 
 ---
 
-**Built with  for intelligent test case generation**
+**Built for intelligent test case generation**
