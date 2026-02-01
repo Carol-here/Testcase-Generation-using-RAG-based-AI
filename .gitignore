@@ -37,3 +37,6 @@ yarn.lock
 # Misc
 *.log
 *.tmp
+
+# Allow stored LanceDB database
+!lancedb_data/
