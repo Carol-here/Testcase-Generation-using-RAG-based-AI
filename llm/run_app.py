@@ -46,9 +46,10 @@ def main():
     """Main startup function."""
     print("🚀 Starting AI Test Case Generator (Streamlit)...")
     
-    # Check if we're in the right directory
-    if not Path("streamlit_app.py").exists():
-        print("❌ streamlit_app.py not found. Please run this script from the project root directory.")
+    # Check if the Streamlit app exists (support either root or streamlit/ subfolder)
+    streamlit_paths = [Path("streamlit_app.py"), Path("streamlit") / "streamlit_app.py"]
+    if not any(p.exists() for p in streamlit_paths):
+        print("❌ streamlit_app.py not found. Ensure `streamlit/streamlit_app.py` exists or run from the project root.")
         sys.exit(1)
     
     # Check dependencies
@@ -66,7 +67,9 @@ def main():
     print("✅ Starting Streamlit server...")
     print("🌐 The app will open in your browser at http://localhost:8501")
     try:
-        subprocess.run([sys.executable, "-m", "streamlit", "run", "streamlit_app.py"], check=True)
+        # Prefer running the app from the streamlit folder if present
+        app_path = "streamlit/streamlit_app.py" if (Path("streamlit") / "streamlit_app.py").exists() else "streamlit_app.py"
+        subprocess.run([sys.executable, "-m", "streamlit", "run", app_path], check=True)
     except KeyboardInterrupt:
         print("\n👋 App stopped by user")
     except subprocess.CalledProcessError as e:
